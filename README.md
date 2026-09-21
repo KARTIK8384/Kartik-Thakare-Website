@@ -1,4 +1,4 @@
-# Kartik Thakare — Engineering Portfolio
+# Kartik Thakare — Website
 
 A one-page engineering portfolio focused on embedded firmware, RTL design, ASIC verification, FPGA systems, education, experience, and technical projects.
 
