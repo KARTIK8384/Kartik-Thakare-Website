@@ -16,6 +16,8 @@ import {
   UsersRound,
 } from "lucide-react";
 import { assetPath } from "../lib/asset-path";
+import { CircuitBackground } from "../components/circuit-background";
+import { TimingWaveform } from "../components/timing-waveform";
 
 const projects = [
   {
@@ -306,7 +308,7 @@ export default function Home() {
             {Array.from({ length: 12 }).map((_, index) => <i key={index} />)}
           </div>
           <dl>
-            <div><dt>Current</dt><dd>Embedded Firmware Co-op</dd></div>
+            <div><dt>Current</dt><dd>Firmware Engineer Co-op</dd></div>
             <div><dt>Studying</dt><dd>M.S. Electrical Engineering</dd></div>
             <div><dt>Based</dt><dd>United States</dd></div>
             <div><dt>Available</dt><dd>Full-time · May 2027</dd></div>
@@ -326,10 +328,12 @@ export default function Home() {
       </section>
 
       <section className="section profile-section" id="profile">
+        <CircuitBackground />
         <div className="profile-intro">
           <div>
             <p className="kicker">ABOUT</p>
             <h2>From equations<br />to instruments<br />to gates.</h2>
+            <TimingWaveform />
           </div>
           <div className="profile-copy">
             <p>
@@ -355,6 +359,7 @@ export default function Home() {
       </section>
 
       <section className="section experience-section" id="experience">
+        <CircuitBackground />
         <div className="section-heading">
           <div><p className="kicker">EXPERIENCE</p><h2>Engineering through<br />the full stack.</h2></div>
           <p>A journey from enterprise systems and hands-on laboratories to research and embedded firmware.</p>
@@ -412,6 +417,7 @@ export default function Home() {
       </section>
 
       <section className="section work-section" id="work">
+        <CircuitBackground />
         <div className="section-heading">
           <div><p className="kicker">PROJECT ARCHIVE / 01—10</p><h2>Systems that move<br />from idea to signal.</h2></div>
           <p>Ten engineering projects spanning semiconductor devices, RTL, UVM, computer architecture, physical implementation, and embedded systems.</p>
@@ -465,6 +471,7 @@ export default function Home() {
       </section>
 
       <section className="section education-section" id="education">
+        <CircuitBackground />
         <div className="section-heading">
           <div><p className="kicker">EDUCATION</p><h2>Two institutions.<br />One foundation.</h2></div>
           <p>Graduate specialization and undergraduate fundamentals, presented with equal weight because both shaped the work.</p>
@@ -504,6 +511,7 @@ export default function Home() {
       </section>
 
       <section className="section notes-section" id="notes">
+        <CircuitBackground />
         <div className="section-heading">
           <div><p className="kicker">ENGINEERING NOTES</p><h2>What I&apos;m learning<br />while I build.</h2></div>
           <p>Short explanations and build logs from current work. Full articles are being prepared.</p>
@@ -521,6 +529,7 @@ export default function Home() {
       </section>
 
       <section className="section resume-section" id="resume">
+        <CircuitBackground />
         <div className="section-heading">
           <div><p className="kicker">RÉSUMÉS</p><h2>Choose the version<br />that fits the role.</h2></div>
           <p>Both are one-page engineering résumés; the project emphasis changes with the opportunity.</p>
@@ -539,6 +548,7 @@ export default function Home() {
       </section>
 
       <section className="contact-section" id="contact">
+        <CircuitBackground />
         <p className="kicker">CONTACT</p>
         <h2>Let&apos;s make something<br /><em>measurable.</em></h2>
         <p className="contact-copy">

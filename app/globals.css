@@ -138,10 +138,55 @@ nav a:hover, nav a:focus-visible, footer a:hover, footer a:focus-visible { color
 .focus-strip h2 { margin: 0 0 6px; font-size: 16px; letter-spacing: -.01em; }
 .focus-strip p { margin: 0; color: #7f8d96; font-size: 13px; line-height: 1.45; }
 
-.section { padding: clamp(84px,10vw,150px) clamp(22px,7vw,106px); border-bottom: 1px solid var(--border); }
+.section { padding: clamp(84px,10vw,150px) clamp(22px,7vw,106px); border-bottom: 1px solid var(--border); position: relative; isolation: isolate; }
+
+/* Decorative routing stays behind content and inside each section's edges. */
+.circuit-background,
+.contact-section > .circuit-background { position: absolute; inset: 0; z-index: -1; overflow: hidden; pointer-events: none; user-select: none; }
+.circuit-background::before { content: ""; position: absolute; inset: 0; background-image: radial-gradient(circle,rgba(120,227,255,.12) .7px,transparent 1px); background-size: 24px 24px; mask-image: radial-gradient(ellipse 380px 250px at 100% 0%,black,transparent),radial-gradient(ellipse 280px 200px at 0% 100%,black,transparent); }
+.circuit-background-art { position: absolute; width: clamp(280px,35vw,500px); height: auto; color: var(--primary); stroke: currentColor; stroke-width: 1; opacity: .45; }
+.circuit-background-upper { top: 12px; right: -60px; }
+.circuit-background-lower { bottom: -22px; left: -100px; transform: rotate(180deg); opacity: .28; }
+.circuit-background-traces { opacity: .35; }
+.circuit-background-nodes { opacity: .5; }
+.circuit-background-signal { stroke-width: 2; stroke-linecap: round; stroke-dasharray: .045 .955; stroke-dashoffset: .045; opacity: 0; animation: ambient-signal 16s linear infinite; }
+.circuit-background-lower .circuit-background-signal { animation-delay: -9s; animation-duration: 20s; }
+.section:nth-of-type(even) .circuit-background-upper .circuit-background-signal { animation-delay: -6s; }
+.contact-section { isolation: isolate; }
+
+@keyframes ambient-signal {
+  0%,12% { stroke-dashoffset: .045; opacity: 0; }
+  18% { opacity: .85; }
+  62% { opacity: .85; }
+  72%,100% { stroke-dashoffset: -1; opacity: 0; }
+}
+
+@media (max-width: 640px) {
+  .circuit-background-art { width: 280px; opacity: .28; }
+  .circuit-background-upper { top: -22px; right: -110px; }
+  .circuit-background-lower { display: none; }
+  .circuit-background::before { opacity: .55; }
+}
 .profile-section { background: #090d10; }
 .profile-intro { display: grid; grid-template-columns: .85fr 1.15fr; gap: clamp(55px,9vw,145px); align-items: start; }
 .profile-intro h2 { margin: 0; font-size: clamp(44px,5.2vw,74px); line-height: .98; letter-spacing: -.055em; }
+.profile-intro > div { min-width: 0; }
+.timing-waveform { margin-top: 42px; max-width: 600px; overflow: hidden; border: 1px solid rgba(120,227,255,.13); background: linear-gradient(125deg,rgba(120,227,255,.025),rgba(7,10,13,.5)); pointer-events: none; user-select: none; }
+.timing-waveform-heading { min-height: 34px; padding: 0 13px; display: flex; align-items: center; justify-content: space-between; gap: 12px; border-bottom: 1px solid rgba(120,227,255,.1); color: #647d88; font: 600 9px/1 var(--font-mono); letter-spacing: .09em; }
+.timing-waveform-heading > span:first-child { display: inline-flex; align-items: center; gap: 7px; color: #8faeb9; }
+.timing-waveform-heading i { width: 5px; height: 5px; background: #8bd9ad; box-shadow: 0 0 8px rgba(139,217,173,.18); }
+.timing-waveform svg { display: block; width: 100%; min-width: 460px; height: auto; padding-block: 8px; }
+.waveform-grid { stroke: rgba(120,227,255,.085); stroke-width: 1; }
+.waveform-labels { fill: #708993; font: 11px var(--font-mono); }
+.waveform-traces { stroke: #8bd9ad; stroke-width: 1.25; opacity: .7; stroke-linejoin: round; }
+.waveform-control { stroke: var(--primary); opacity: .75; }
+.waveform-values { fill: #8bd9ad; opacity: .8; font: 10px var(--font-mono); }
+.waveform-cursor { color: #ddce92; stroke: currentColor; stroke-width: 1; opacity: .65; transform: translateX(300px); animation: waveform-sweep 18s linear infinite; }
+@keyframes waveform-sweep {
+  0%,8% { transform: translateX(108px); opacity: 0; }
+  14%,82% { opacity: .65; }
+  90%,100% { transform: translateX(574px); opacity: 0; }
+}
 .profile-copy { max-width: 760px; }
 .profile-copy > p { margin: 0 0 22px; color: #a2afb7; font-size: clamp(18px,1.7vw,22px); line-height: 1.65; }
 .profile-copy > p:first-child { color: #e3e9ec; font-size: clamp(22px,2.2vw,30px); line-height: 1.48; letter-spacing: -.02em; }
