@@ -332,7 +332,7 @@ export default function Home() {
           </div>
           <div className="profile-copy">
             <p>
-              I work at the boundary of software and silicon—writing embedded firmware and RTL,
+              I work at the boundary of software and silicon by writing RTL and firmware,
               building verification environments, and measuring behavior in simulation and on hardware.
             </p>
             <p>
