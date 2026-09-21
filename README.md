@@ -25,6 +25,19 @@ Open the local address shown in the terminal. To create a production build:
 pnpm build
 ```
 
+## Publish to GitHub Pages
+
+The `Deploy portfolio to GitHub Pages` workflow builds and publishes the site on
+every push to `master`. In the repository's **Settings > Pages**, set **Source**
+to **GitHub Actions** before the first deployment.
+
+Live URL: https://kartik8384.github.io/Kartik-Thakare-Website/
+
+To check the static build locally, run `pnpm build:pages`. The generated site is
+in `out/`; GitHub Actions uploads that folder. The build includes the repository
+path in stylesheet, script, favicon, and PDF URLs. For a custom domain, set
+`NEXT_PUBLIC_BASE_PATH` to an empty string when building.
+
 ## Main files
 
 - `app/page.tsx` — page content and structure

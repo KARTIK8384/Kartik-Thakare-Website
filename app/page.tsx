@@ -15,6 +15,7 @@ import {
   ShieldCheck,
   UsersRound,
 } from "lucide-react";
+import { assetPath } from "../lib/asset-path";
 
 const projects = [
   {
@@ -232,13 +233,13 @@ const resumes = [
     label: "RTL / DESIGN VERIFICATION",
     title: "Digital Design & Verification Résumé",
     detail: "Best for RTL, ASIC verification, FPGA, and embedded-firmware opportunities.",
-    href: "/Kartik_Thakare_RTL_Verification_Resume.pdf",
+    href: assetPath("/Kartik_Thakare_RTL_Verification_Resume.pdf"),
   },
   {
     label: "VLSI / PHYSICAL DESIGN",
     title: "Physical Design & VLSI Résumé",
     detail: "Best for standard-cell, layout, physical-design, and broader VLSI opportunities.",
-    href: "/Kartik_Thakare_Physical_Design_Resume.pdf",
+    href: assetPath("/Kartik_Thakare_Physical_Design_Resume.pdf"),
   },
 ];
 
@@ -260,8 +261,8 @@ export default function Home() {
           <span className="brand-name">Kartik Thakare</span>
         </a>
         <nav aria-label="Primary navigation">
-          <a href="#work">Work</a>
           <a href="#experience">Experience</a>
+          <a href="#work">Work</a>
           <a href="#education">Education</a>
           <a href="#volunteering">Volunteering</a>
           <a href="#resume">Résumé</a>
@@ -278,8 +279,8 @@ export default function Home() {
           <p className="eyebrow"><span /> Electrical &amp; Electronics Engineer</p>
           <h1>I build close<br />to the <em>hardware.</em></h1>
           <p className="hero-intro">
-            I&apos;m Kartik—an RIT graduate student working across embedded firmware,
-            RTL design, ASIC verification, computer architecture, and FPGA systems.
+            I&apos;m Kartik, an RIT graduate student working across RTL Design, ASIC Verification,
+            Computer Architecture, FPGA programming and Embedded systems.
           </p>
           <div className="hero-actions">
             <a className="button button-primary" href="#work">
@@ -352,59 +353,6 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section work-section" id="work">
-        <div className="section-heading">
-          <div><p className="kicker">PROJECT ARCHIVE / 01—10</p><h2>Systems that move<br />from idea to signal.</h2></div>
-          <p>Ten engineering projects spanning semiconductor devices, RTL, UVM, computer architecture, physical implementation, and embedded systems.</p>
-        </div>
-
-        <div className="project-index" aria-label="Project areas">
-          <span>PROJECT RECORD / 01—10</span>
-          <CircuitMotif className="index-circuit" />
-          <strong>TCAD · RTL · DV · FPGA · VLSI · EMBEDDED</strong>
-        </div>
-
-        <div className="project-list">
-          {projects.map(({ number, period, status, title, description, tags, icon: Icon }) => (
-            <article className="project" key={number}>
-              <div className="project-number">{number}</div>
-              <div className="project-icon"><Icon size={28} strokeWidth={1.4} aria-hidden="true" /></div>
-              <div className="project-copy">
-                <div className="project-meta"><p className="project-status">{status}</p><span>{period}</span></div>
-                <h3>{title}</h3>
-                <p>{description}</p>
-                <ul aria-label={`${title} technologies`}>
-                  {tags.map((tag) => <li key={tag}>{tag}</li>)}
-                </ul>
-              </div>
-            </article>
-          ))}
-        </div>
-
-        <article className="independent-build">
-          <div className="independent-build-icon"><CircuitBoard size={31} strokeWidth={1.35} aria-hidden="true" /></div>
-          <div>
-            <p>{independentBuild.status}</p>
-            <h3>{independentBuild.title}</h3>
-            <span>{independentBuild.description}</span>
-            <ul aria-label={`${independentBuild.title} technologies`}>
-              {independentBuild.tags.map((tag) => <li key={tag}>{tag}</li>)}
-            </ul>
-          </div>
-          <a href={independentBuild.href} target="_blank" rel="noreferrer">
-            View repository <ArrowUpRight size={19} aria-hidden="true" />
-          </a>
-        </article>
-
-        <article className="patent-strip">
-          <div><span>PATENT / GRANTED 2026</span><strong>Indian Patent 601471 · Application 202321058914</strong></div>
-          <p>A System and Process for Identifying and Tracking Movements of a Badminton Player</p>
-          <a className="patent-download" href="/Kartik_Thakare_Badminton_Tracking_Patent.pdf" download>
-            <Award size={18} aria-hidden="true" /> View certificate
-          </a>
-        </article>
-      </section>
-
       <section className="section experience-section" id="experience">
         <div className="section-heading">
           <div><p className="kicker">EXPERIENCE</p><h2>Engineering through<br />the full stack.</h2></div>
@@ -459,6 +407,59 @@ export default function Home() {
           <p className="kicker">MY APPROACH</p>
           <blockquote>“Make the behavior observable. Then make it correct. Then make it fast.”</blockquote>
           <p>Small verified milestones, clear interfaces, and evidence before assumptions.</p>
+        </article>
+      </section>
+
+      <section className="section work-section" id="work">
+        <div className="section-heading">
+          <div><p className="kicker">PROJECT ARCHIVE / 01—10</p><h2>Systems that move<br />from idea to signal.</h2></div>
+          <p>Ten engineering projects spanning semiconductor devices, RTL, UVM, computer architecture, physical implementation, and embedded systems.</p>
+        </div>
+
+        <div className="project-index" aria-label="Project areas">
+          <span>PROJECT RECORD / 01—10</span>
+          <CircuitMotif className="index-circuit" />
+          <strong>TCAD · RTL · DV · FPGA · VLSI · EMBEDDED</strong>
+        </div>
+
+        <div className="project-list">
+          {projects.map(({ number, period, status, title, description, tags, icon: Icon }) => (
+            <article className="project" key={number}>
+              <div className="project-number">{number}</div>
+              <div className="project-icon"><Icon size={28} strokeWidth={1.4} aria-hidden="true" /></div>
+              <div className="project-copy">
+                <div className="project-meta"><p className="project-status">{status}</p><span>{period}</span></div>
+                <h3>{title}</h3>
+                <p>{description}</p>
+                <ul aria-label={`${title} technologies`}>
+                  {tags.map((tag) => <li key={tag}>{tag}</li>)}
+                </ul>
+              </div>
+            </article>
+          ))}
+        </div>
+
+        <article className="independent-build">
+          <div className="independent-build-icon"><CircuitBoard size={31} strokeWidth={1.35} aria-hidden="true" /></div>
+          <div>
+            <p>{independentBuild.status}</p>
+            <h3>{independentBuild.title}</h3>
+            <span>{independentBuild.description}</span>
+            <ul aria-label={`${independentBuild.title} technologies`}>
+              {independentBuild.tags.map((tag) => <li key={tag}>{tag}</li>)}
+            </ul>
+          </div>
+          <a href={independentBuild.href} target="_blank" rel="noreferrer">
+            View repository <ArrowUpRight size={19} aria-hidden="true" />
+          </a>
+        </article>
+
+        <article className="patent-strip">
+          <div><span>PATENT / GRANTED 2026</span><strong>Indian Patent 601471 · Application 202321058914</strong></div>
+          <p>A System and Process for Identifying and Tracking Movements of a Badminton Player</p>
+          <a className="patent-download" href={assetPath("/Kartik_Thakare_Badminton_Tracking_Patent.pdf")} download>
+            <Award size={18} aria-hidden="true" /> View certificate
+          </a>
         </article>
       </section>
 
