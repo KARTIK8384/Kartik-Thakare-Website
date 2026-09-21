@@ -223,7 +223,7 @@ const education = [
     dates: "2019 — 2023",
     school: "University of Mumbai",
     degree: "Bachelor of Engineering · Electrical & Electronics Engineering",
-    detail: "Ramrao Adik Institute of Technology · GPA 3.44/4.00",
+    detail: "Dr. D. Y. Patil University Ramrao Adik Institute of Technology · GPA 3.44/4.00",
     mark: "MU",
   },
 ];
@@ -279,8 +279,9 @@ export default function Home() {
           <p className="eyebrow"><span /> Electrical &amp; Electronics Engineer</p>
           <h1>I build close<br />to the <em>hardware.</em></h1>
           <p className="hero-intro">
-            I&apos;m Kartik, an RIT graduate student working across RTL Design, ASIC Verification,
-            Computer Architecture, FPGA programming and Embedded systems.
+            I&apos;m Kartik, a graduate student at Rochester Institute of Technology working across
+            Digital System Design (RTL &amp; PD), ASIC Verification, Computer Architecture,
+            FPGA programming and Embedded systems.
           </p>
           <div className="hero-actions">
             <a className="button button-primary" href="#work">
@@ -466,7 +467,7 @@ export default function Home() {
       <section className="section education-section" id="education">
         <div className="section-heading">
           <div><p className="kicker">EDUCATION</p><h2>Two institutions.<br />One foundation.</h2></div>
-          <p>Graduate specialization and undergraduate fundamentals—presented with equal weight because both shaped the work.</p>
+          <p>Graduate specialization and undergraduate fundamentals, presented with equal weight because both shaped the work.</p>
         </div>
 
         <div className="education-grid">
